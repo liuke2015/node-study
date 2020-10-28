@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        span{
+            marigin-right:5px;
+        }
+        span:nth-of-type(2):before{
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 10px;
+            border-left:1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>这是第<%= day %>天的第<%= num %>节课。</h1>
+    <ul>
+        <% for(var i = 0;i<list.length;i++){%>
+            <li>
+                <span><%= list[i].title%></span>
+                <span><%= list[i].num%></span>
+            </li>
+        <%}%>
+    </ul>
+</body>
+</html>
