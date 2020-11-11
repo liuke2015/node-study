@@ -1,6 +1,7 @@
 /**
  * Created by Danny on 2015/9/22 9:37.
  */
+/*
 var express = require("express");
 var app = express();
 
@@ -30,4 +31,30 @@ app.get("/:username/:oid",function(req,res){
     res.end(oid);
 });
 
-app.listen(3000);
+app.listen(3000);*/
+//我的练习
+var express = require("express")
+var app = express()
+
+app.get("/aAA",function(req,res){
+    res.send("你好")
+})
+
+app.get("/student/:id",function(req,res){
+    var id = req.params["id"];
+    var reg = /^[\d]{6}$/;
+    if(reg.test(id)){
+        res.send("学生学号："+id);
+    }else{
+        res.send("请检查格式");
+    }
+})
+
+app.get("/:userName/:oid",function(req,res){
+    var name=req.params.userName
+    var id=req.params.oid
+    res.send(name);
+    res.end(id);
+})
+
+app.listen(3000)
