@@ -1,6 +1,7 @@
 /**
  * Created by Danny on 2015/9/22 10:22.
  */
+/*
 var express = require("express");
 var fs = require("fs");
 
@@ -28,4 +29,27 @@ function haha(req,res,next){
         }
         res.send(data.toString());
     });
+}*/
+//我的练习
+var express = require("express");
+var fs = require("fs")
+
+var app = express();
+
+app.use(haha);
+app.get('/admin',function(req,res){
+    res.send("管理员")
+})
+function haha(req,res,next){
+    var filePath = req.originalUrl;
+    var path = __dirname + '/public' +filePath;
+    fs.readFile(path,function(err,data){
+        if(err){
+            //文件不存在
+            next();
+            return;
+        }
+        res.send(data.toString())
+    })
 }
+app.listen(3000)
