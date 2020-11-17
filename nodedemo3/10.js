@@ -1,6 +1,7 @@
 /**
  * Created by Danny on 2015/9/22 10:22.
  */
+/*
 var express = require("express");
 
 var app = express();
@@ -18,4 +19,19 @@ app.use(function(req,res){
     res.status(404).send("没有这个页面！");
 });
 
-app.listen(3000);
+app.listen(3000);*/
+
+//我的练习
+var express = require("express");
+var app = express();
+
+
+app.get("/",function(req,res,next){
+    console.log("哈哈哈")
+    next()
+})
+app.use("/",express.static(__dirname+"/public"));
+app.use(function(req,res){
+    res.status(404).send("没有这个页面！")
+})
+app.listen(3000)
