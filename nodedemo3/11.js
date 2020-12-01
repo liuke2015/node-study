@@ -1,6 +1,7 @@
 /**
  * Created by Danny on 2015/9/22 10:22.
  */
+/*
 var express = require("express");
 var app = express();
 
@@ -16,4 +17,16 @@ app.get("/check",function(req,res){
     });
 });
 
-app.listen(3000);
+app.listen(3000);*/
+/*我的练习*/
+var express = require("express");
+var app = express();
+
+app.set("view engine","ejs");
+app.get("/",function(req,res){
+    res.render(__dirname+'/views/haha',{news:['hh1','hh2','hh3']})
+})
+app.get("/check",function(req,res){
+    res.send({"user":"ok"})
+})
+app.listen(3000)
