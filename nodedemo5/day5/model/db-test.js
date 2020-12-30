@@ -63,3 +63,4 @@ exports.deleteMany=function(cName,data,callback){
         })
     })
 }
+
