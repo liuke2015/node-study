@@ -51,3 +51,15 @@ exports.findList = function(cName,findObj,pageObj,callback){
         })
     })
 }
+/*删除满足条件的多条数据
+* data(条件，为{}时，删除全部文档):对象结构，例如：{age:18}
+* */
+exports.deleteMany=function(cName,data,callback){
+    _MongConect(function(db){
+        console.log(data)
+        db.collection(cName).deleteMany(data,function(err,results){
+            callback(err,results)
+            db.close()
+        })
+    })
+}

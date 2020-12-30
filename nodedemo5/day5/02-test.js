@@ -62,4 +62,14 @@ app.get("/findList",function(req,res){
         res.send(result)
     })
 })
+app.get("/del",function(req,res){
+    let age = parseInt(req.query.age)
+    db.deleteMany("student",{"age":age},function(err,result){
+        if(err){
+            console.log(err)
+        }
+        res.send(result)
+    })
+
+})
 app.listen(3001)
